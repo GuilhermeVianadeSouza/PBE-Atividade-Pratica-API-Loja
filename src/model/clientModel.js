@@ -48,8 +48,25 @@ let client = [
     return clientWithId;
   }
 
+  const updateClient = (id, updateFields) =>{
+      const atualizar = client.findIndex(client => client.id === id)
+  
+      client [atualizar] = {...client[atualizar], ...updateFields}
+      return client[atualizar]
+    }
+  
+    const deleteClient = (id) =>{
+      const deletar = client.findIndex(client => client.id === id)
+  
+      const deleted = client[deletar];
+      client.splice
+      return deleted
+    }
+
   module.exports = {
     findAllClient,
     findClientById,
-    createClient
+    createClient,
+    updateClient, 
+    deleteClient
   }

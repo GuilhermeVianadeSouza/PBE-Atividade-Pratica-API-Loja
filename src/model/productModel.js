@@ -61,9 +61,25 @@ let product = [
     return productWithId;
   }
 
-  
+  const updateProduct = (id, updateFields) =>{
+    const atualizar = product.findIndex(product => product.id === id)
+
+    product[atualizar] = {...product[atualizar], ...updateFields}
+    return product[atualizar]
+  }
+
+  const deleteProduct = (id) =>{
+    const deletar = product.findIndex(product => product.id === id)
+
+    const deleted = product[deletar];
+    product.splice
+    return deleted
+  }
+
   module.exports = {
     findAll,
     findById,
-    createProduct
+    createProduct,
+    updateProduct,
+    deleteProduct
   }

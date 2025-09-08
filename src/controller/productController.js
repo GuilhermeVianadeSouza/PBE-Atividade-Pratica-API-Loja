@@ -38,8 +38,26 @@ const createProduct = (req, res) => {
     }
 }
 
+const updateProduct = (req, res) => {
+    const id = parseInt(req.params.id);
+    const updatedFields = req.body;
+
+   const updated = productModel.updateProduct(id, updatedFields);
+    res.status(200).json(updated);
+}
+
+const deleteProduct = (req, res) => {
+    const id = parseInt(req.params.id);
+    const deleteInformation = req.body;
+
+    const deleted = productModel.deleteProduct(id, deleteInformation)
+    res.status(200).json({mensagem: 'Produto deletado.'})
+}
+
 module.exports = {
     getAllProduct,
     getProductById,
-    createProduct
+    createProduct,
+    updateProduct,
+    deleteProduct
 }
