@@ -26,7 +26,7 @@ const createClient = (req, res) => {
     ){
         return res.status(400).json({mensagem: 'Todos os campos são obrigatórios.'})
     } else {
-        const newClient = clientModelModel.createClient({nome, email, telefone, endereco, dataCadastro, ativo});
+        const newClient = clientModel.createClient({nome, email, telefone, endereco, dataCadastro, ativo});
         res.status(201).json(newClient);
     }
 }
@@ -43,7 +43,7 @@ const deleteClient = (req, res) => {
     const id = parseInt(req.params.id);
     const deleteInformation = req.body;
 
-    const deleted = clientModelModel.deleteClient(id, deleteInformation)
+    const deleted = clientModel.deleteClient(id, deleteInformation)
     res.status(200).json({mensagem: 'Cliente deletado.'})
 }
 
